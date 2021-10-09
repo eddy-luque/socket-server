@@ -16,7 +16,6 @@ router.post('/mensajes',(req:Request,res:Response) => {
         ok:true,
         cuerpo,
         de
-        // message : 'POST Todo listo!'
     });
 });
 
@@ -30,7 +29,6 @@ router.post('/mensajes/:id',(req:Request,res:Response) => {
         cuerpo,
         de,
         id
-        // message : 'POST Todo listo!'
     });
 });
 

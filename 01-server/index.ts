@@ -1,19 +1,22 @@
-import Server from "./classes/server";
+import Server from './classes/server';
 import router from "./routes/router";
-// import bodyParser from "body-parser";
+
 import express from "express";
-import cors from "cors";
+// import cors from "cors"; 
+// const cors = require('cors');
 
-const server = new Server();
+const server  = Server.instance;
 
-// server.app.use(bodyParser.urlencoded({extended:true}));
-// server.app.use(bodyParser.json());
 // BodyParser
 server.app.use(express.json());
 server.app.use(express.urlencoded({ extended: true }));
 
 // Cors
-server.app.use(cors({ origin: true, credentials: true }));
+// server.app.use(cors({ origin: true, credentials: true}));
+// server.app.use(cors());
+
+
+
 
 // Rutas del servicio
 server.app.use("/", router);
