@@ -1,0 +1,20 @@
+<div class="container mt-2">
+  <h2>Mensajes:</h2>
+  <div class="container-chats mb-2" #contenedorChat>
+    <li class="list-group-item" *ngFor="let mensaje of mensajes">{{ mensaje.de }} : {{ mensaje.cuerpo }}</li>
+  </div>
+  <form (ngSubmit)="enviar()">
+    <div class="form-group">
+      <label>Mensaje</label>
+      <input
+        [(ngModel)]="texto"
+        autofocus
+        name="texto"
+        autocomplete="off"
+        type="text"
+        class="form-control"
+        placeholder="Ingrese un mensaje"
+      />
+    </div>
+  </form>
+</div>

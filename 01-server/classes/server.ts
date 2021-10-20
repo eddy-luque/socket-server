@@ -12,7 +12,11 @@ export default class Server {
   public port: number;
   public app: express.Application;
   // public io: wsServer.Server;
-  public io: any;
+  
+  // public io: any;
+  public io : wsServer;
+
+
   private httpServer: http.Server;
 
   private constructor() {
@@ -30,15 +34,21 @@ export default class Server {
   }
 
   private escucharSockets() {
-    console.log("Escuchando conexiones - sockets");
+    // console.log("Escuchando conexiones - sockets");
     this.io.on("connection", (cliente:any) => {
-      console.log("Cliente conectado");
+      // Conectar cliente
+      socket.conectarCliente(cliente);
+
+
+      // Configurar Usuario
+      socket.configurarUsuario(cliente, this.io);
       
       //Mensajes
       socket.mensaje(cliente, this.io);
       
       //Desconectar 
       socket.desconectar(cliente);
+
     });
   }
 
